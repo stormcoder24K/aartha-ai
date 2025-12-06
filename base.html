@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Aartha.ai{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Montserrat Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            /* Body and Footer Colors */
+            --kohl-black: #121212; /* Primary Dark: Sleek, modern, luxury fintech */
+            --kumkum-gold: #C29F50; /* Brand Accent: Prosperity, Indian dignity */
+            --sandalwood-cream: #F5EFE6; /* Highlight Accent: Elegant ivory-beige */
+            --indigo-stone: #2E3A59; /* Trust Layer: Intellectual depth */
+            --peepal-green: #6E8C61; /* Secondary Accent: Rural calm, abundance */
+            /* Navbar Colors */
+            --regal-midnight-blue: #1A2238; /* Navbar Background: Sophisticated, professional */
+            --ivory-white: #FAF9F6; /* Link Text: Readable, elegant */
+            --shadow-dark: rgba(0, 0, 0, 0.4);
+            --shadow-light: rgba(0, 0, 0, 0.2);
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(180deg, var(--kohl-black) 0%, #1e1e1e 100%);
+            color: var(--sandalwood-cream);
+            overflow-x: hidden;
+            cursor: none; /* Custom cursor */
+        }
+
+        .custom-cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, var(--kumkum-gold) 20%, transparent 80%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+
+        .custom-cursor.hovered {
+            transform: translate(-50%, -50%) scale(1.5);
+            background: radial-gradient(circle, var(--peepal-green) 20%, transparent 80%);
+        }
+
+        .main-content {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Premium Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(135deg, var(--regal-midnight-blue) 0%, rgba(26, 34, 56, 0.9) 100%);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 20px var(--shadow-light);
+            padding: 1.2rem 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: linear-gradient(135deg, var(--regal-midnight-blue) 0%, rgba(26, 34, 56, 0.95) 100%);
+        }
+
+        .navbar-brand {
+            font-weight: 900;
+            font-size: 2rem;
+            color: var(--kumkum-gold) !important;
+            letter-spacing: 1.5px;
+            text-shadow: 1px 1px 3px var(--shadow-dark);
+            transition: color 0.4s ease;
+        }
+
+        .navbar-brand:hover {
+            color: var(--sandalwood-cream) !important;
+        }
+
+        .nav-link {
+            color: var(--ivory-white) !important;
+            font-weight: 600;
+            font-size: 1.2rem;
+            padding: 0.6rem 2.5rem;
+            text-transform: none;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: hidden;
+            white-space: normal;
+            line-height: 1.2;
+            margin: 0 0.7rem;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: -100%;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--kumkum-gold), var(--sandalwood-cream));
+            transition: left 0.4s ease;
+        }
+
+        .nav-link:hover::before {
+            left: 0;
+        }
+
+        .nav-link:hover {
+            color: var(--sandalwood-cream) !important;
+            transform: translateY(-3px);
+            text-shadow: 0 0 10px rgba(245, 239, 230, 0.7);
+        }
+
+        /* Subtle Parallax Background */
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.pexels.com/photos/974314/pexels-photo-974314.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2') no-repeat center center;
+            background-size: cover;
+            opacity: 0.2; /* Increased from 0.05 to 0.2 for more visibility */
+            z-index: -1;
+            transform: translateZ(0);
+        }
+
+        /* Sophisticated Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--kohl-black) 0%, var(--indigo-stone) 100%);
+            color: var(--sandalwood-cream);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 -8px 24px var(--shadow-dark);
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, var(--kumkum-gold), var(--peepal-green));
+            box-shadow: 0 2px 4px var(--shadow-light);
+        }
+
+        .footer h5 {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #c2a881;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer h5:hover {
+            color: var(--kumkum-gold);
+        }
+
+        .footer p, .footer a {
+            font-weight: 400;
+            font-size: 0.9rem;
+            color: var(--sandalwood-cream);
+            margin: 0.5rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer a {
+            text-decoration: none;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Apply underline animation only to Quick Links section links */
+        .footer .quick-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: var(--kumkum-gold);
+            transition: width 0.3s ease, left 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .footer .quick-links a:hover::after {
+            width: 100%;
+            left: 50%;
+        }
+
+        .footer .quick-links a:hover {
+            color: var(--kumkum-gold);
+            transform: translateX(5px);
+        }
+
+        .social-icons a {
+            font-size: 1.8rem;
+            margin: 0 12px;
+            color: var(--sandalwood-cream);
+            transition: all 0.4s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--peepal-green);
+            transform: scale(1.3) rotate(5deg);
+            text-shadow: 1px 1px 3px var(--shadow-dark);
+        }
+
+        .footer .col-md-4 {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 0.8s ease forwards;
+        }
+
+        .footer .col-md-4:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .footer .col-md-4:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer .text-center p {
+            font-size: 0.85rem;
+            font-weight: 300;
+            opacity: 0.9;
+            letter-spacing: 0.5px;
+        }
+
+        /* Smooth Scroll and Accessibility */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.8rem;
+            }
+            .nav-link {
+                font-size: 0.8rem;
+                padding: 0.5rem 2rem;
+                margin: 0 0.3rem;
+            }
+            .footer {
+                padding: 3rem 0 1.5rem;
+            }
+            .footer h5 {
+                font-size: 1.1rem;
+            }
+            .social-icons a {
+                font-size: 1.6rem;
+                margin: 0 8px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 0.8rem 0;
+            }
+            .footer .col-md-4 {
+                text-align: center !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+
+    <!-- Parallax Background -->
+    <div class="parallax-bg"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('index') }}">Aartha.ai</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home<br>Page</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('chatbot') }}">Financial<br>Advisor</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('chatbot') }}">Advisor</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('account_guide') }}">Accounts<br>Guide</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('account_guide') }}">Accounts</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('atm_guide') }}">ATM<br>Guide</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('atm_guide') }}">ATM Guide</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('locker') }}">Locker<br>Facilities</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('locker') }}">Locker</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('insurance_guide') }}">Insurance<br>Guide</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('insurance_guide') }}">Insurance</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('microloan_eligibility') }}">Microloan<br>Eligibility</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('microloan_eligibility') }}">Microloan</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('schemes') }}">Schemes<br>Finder</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('schemes') }}">Schemes</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('upload_form') }}">Forms<br>Guide</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('upload_form') }}">Forms</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('tips') }}">General<br>Advice</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('tips') }}">Pointers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('fraud_alerts') }}">Report</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center text-md-start mb-5">
+                    <h5>Aartha.ai</h5>
+                    <p>Empowering Rural Prosperity with Smart Financial Solutions</p>
+                </div>
+                <div class="col-md-4 text-center mb-5 quick-links">
+                    <h5>Quick Links</h5>
+                    <p><a href="{{ url_for('index') }}">Home Page</a>  |  <a href="{{ url_for('upload_form') }}">Forms Guide</a></p>
+                    <p>Contact: <a href="mailto:support@dsatm-aartha.ai">support@aartha.ai</a></p>
+                    <p>Phone: +91-8005551234</p>
+                </div>
+                <div class="col-md-4 text-center text-md-end mb-5 connect-section">
+                    <h5>Connect With Us</h5>
+                    <div class="social-icons">
+                        <a href="https://facebook.com/dsatm"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/dsatm"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/dsatm"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/dsatm"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>© 2025 Aartha.ai - All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS for Cursor and Scroll Effects -->
+    <script>
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+        document.querySelectorAll('a, button, .nav-link').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+        });
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

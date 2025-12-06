@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% block title %}Fraud Awareness Alerts - Aartha.ai{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="alert-section">
+        <h2 class="text-center mb-4" style="color: var(--kumkum-gold);">Fraud Awareness Alerts</h2>
+        <div class="alert-item">
+            <h4>Common Scams to Watch Out For</h4>
+            - Never share your bank account number or PIN with anyone who calls you.<br>
+            - Be careful of messages offering free loans or money; they might be fake.<br>
+            - Do not give your OTP (one-time password) to anyone, even if they say they are from the bank.<br>
+            - Avoid clicking links in messages asking for your personal details.<br>
+            - If someone asks for money to "activate" a loan, it is a trick.
+        </div>
+        <div class="alert-item">
+            <h4>What to Do if You See Something Strange</h4>
+            - Tell your local bank or a trusted person right away.<br>
+            - Write down the phone number or message you received.<br>
+            - Do not send money until you are sure it is safe.<br>
+            - Visit your bank branch to check your account.
+        </div>
+    </div>
+
+    <div class="report-form">
+        <h4 class="mb-3">Report a Suspicious Call or Message</h4>
+        <form id="report-fraud-form">
+            <label for="language">Select Language:</label>
+            <select name="language" id="language" class="form-select mb-3" style="background: var(--kohl-black); color: var(--sandalwood-cream);">
+                <option value="en-US" {% if language == 'en-US' %}selected{% endif %}>English</option>
+                <option value="hi-IN" {% if language == 'hi-IN' %}selected{% endif %}>हिंदी</option>
+                <option value="kn-IN" {% if language == 'kn-IN' %}selected{% endif %}>ಕನ್ನಡ</option>
+                <option value="ta-IN" {% if language == 'ta-IN' %}selected{% endif %}>தமிழ்</option>
+                <option value="te-IN" {% if language == 'te-IN' %}selected{% endif %}>తెలుగు</option>
+            </select>
+            <label for="description">What happened? (e.g., Call asking for my PIN)</label>
+            <textarea name="description" id="description" rows="4" placeholder="Tell us what you saw or heard..." required></textarea>
+            <label for="contact">Your Village or Phone Number (optional):</label>
+            <input type="text" name="contact" id="contact" placeholder="e.g., My village is XYZ or +91-123-456-7890">
+            <button type="submit">Send Report</button>
+        </form>
+        <div class="success-message" id="success-message">
+            Thank you! Your report has been received. We will review it soon.
+        </div>
+    </div>
+</div>
+<style>
+    .alert-section {
+        padding: 2rem 1rem;
+        background: rgba(26, 34, 56, 0.9);
+        border-radius: 10px;
+        margin: 6rem 1rem 2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        margin-top: 8rem;
+    }
+    .alert-item {
+        margin-bottom: 1.5rem;
+        color: var(--sandalwood-cream);
+    }
+    .report-form {
+        padding: 1.5rem;
+        background: rgba(46, 58, 89, 0.9);
+        border-radius: 10px;
+        margin: 2rem 1rem;
+        color: var(--sandalwood-cream);
+    }
+    .report-form label {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+    .report-form input, .report-form textarea {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        background: var(--kohl-black);
+        border: 1px solid var(--kumkum-gold);
+        color: var(--sandalwood-cream);
+        border-radius: 5px;
+    }
+    .report-form button {
+        background: var(--peepal-green);
+        color: var(--sandalwood-cream);
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    .report-form button:hover {
+        background: var(--kumkum-gold);
+    }
+    .success-message {
+        color: var(--peepal-green);
+        margin-top: 1rem;
+        display: none;
+    }
+    @media (max-width: 768px) {
+        .alert-section {
+            margin: 4rem 0.5rem 1rem;
+        }
+        .report-form {
+            margin: 1rem 0.5rem;
+        }
+    }
+</style>
+<script>
+    // Dummy Form Submission
+    const form = document.getElementById('report-fraud-form');
+    const successMessage = document.getElementById('success-message');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        successMessage.style.display = 'block';
+        form.reset();
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+        }, 5000);
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,266 @@
+{% extends "base.html" %}
+{% block title %}Insurance Guide & Chatbot - Aartha.ai{% endblock %}
+{% block content %}
+<div class="container">
+    <!-- Insurance Guide Section -->
+    <div class="insurance-section">
+        <h2 class="text-center mb-4" style="color: var(--kumkum-gold);">Insurance Guide</h2>
+        <div class="insurance-item">
+            <h4>What is Insurance?</h4>
+            <p>Insurance is like a safety net for you and your family. It helps protect you from big losses. For example, if your crops fail due to no rain, crop insurance can give you money to help you start again. Or, if someone in your family gets sick, health insurance can help pay for the doctor.</p>
+        </div>
+        <div class="insurance-item">
+            <h4>Types of Insurance for Villagers</h4>
+            <p> - <strong>Health Insurance:</strong> Helps pay for medical costs if you or your family get sick. Example: If your child needs medicine for fever, insurance can cover the cost.<br>
+                - <strong>Crop Insurance:</strong> Protects your crops from problems like drought or floods. Example: If you lose your rice crop due to heavy rain, you can get money to buy seeds for the next season.<br>
+                - <strong>Livestock Insurance:</strong> Protects animals like cows or goats. Example: If your cow dies due to illness, you can get money to buy a new one.<br>
+                - <strong>Accident Insurance:</strong> Gives money if you get hurt in an accident. Example: If you fall while working in the field and can’t work, insurance can help you during that time.<br>
+               - <strong>Property Insurance:</strong> Protects your home or farm equipment from damage. Example: If your house roof breaks in a storm, insurance can help pay to fix it.</p>
+        </div>
+        <div class="insurance-item">
+            <h4>How to Get Insurance?</h4>
+            <p>- Visit your local bank or an insurance office in your village or nearby town.<br>
+               - Ask about plans that fit your needs, like crop or health insurance.<br>
+               - They will ask for some details, like your name, village, and what you want to insure.<br>
+               - You may need to pay a small amount every month or year to keep the insurance active.<br>
+               - Keep the insurance papers safe, and ask for help if you don’t understand something.</p>
+        </div>
+    </div>
+
+    <!-- Chatbot Section -->
+    <div class="chatbot-section">
+        <h2 class="text-center mb-4" style="color: var(--kumkum-gold);">Insurance Chatbot</h2>
+        <p class="text-center mb-4">Ask me anything about insurance! For example, "How do I get crop insurance?" or "What is health insurance?"</p>
+        <div class="language-selector mb-4">
+            <label for="language" style="color: var(--sandalwood-cream); margin-right: 1rem;">Select Language:</label>
+            <select name="language" id="language" class="form-select" style="background: var(--kohl-black); color: var(--sandalwood-cream); width: auto; display: inline-block;">
+                <option value="en-US" {% if language == 'en-US' %}selected{% endif %}>English</option>
+                <option value="hi-IN" {% if language == 'hi-IN' %}selected{% endif %}>हिंदी</option>
+                <option value="kn-IN" {% if language == 'kn-IN' %}selected{% endif %}>ಕನ್ನಡ</option>
+                <option value="ta-IN" {% if language == 'ta-IN' %}selected{% endif %}>தமிழ்</option>
+                <option value="te-IN" {% if language == 'te-IN' %}selected{% endif %}>తెలుగు</option>
+            </select>
+        </div>
+        <div class="chatbox" id="chatbox">
+            <div class="chat-message bot-message">
+                Hello! I am here to help you with insurance questions. What would you like to know?
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type or speak your question here..." required>
+            <button id="send-btn">Send</button>
+            <button id="mic-btn" style="background: var(--peepal-green); color: var(--sandalwood-cream); border: none; border-radius: 50%; cursor: pointer; margin-left: 1rem; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; position: relative;">
+                <i class="fas fa-microphone" style="font-size: 1.3rem;"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<style>
+    :root {
+        --alert-red: #ff1a1a; /* Vivid red for recording state */
+        --glow-red: 0 0 15px rgba(255, 26, 26, 0.7); /* Glowing effect */
+    }
+    .insurance-section, .chatbot-section {
+        padding: 2rem 1rem;
+        background: rgba(26, 34, 56, 0.9);
+        border-radius: 10px;
+        margin: 9rem 1rem 2rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        color: var(--sandalwood-cream);
+    }
+    .insurance-item {
+        margin-bottom: 1.5rem;
+    }
+    .insurance-item h4 {
+        color: var(--kumkum-gold);
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+    }
+    .chatbox {
+        height: 400px;
+        overflow-y: auto;
+        background: var(--kohl-black);
+        border: 1px solid var(--kumkum-gold);
+        border-radius: 5px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    .chat-message {
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+        border-radius: 5px;
+        max-width: 80%;
+    }
+    .user-message {
+        background: var(--peepal-green);
+        margin-left: auto;
+        text-align: right;
+    }
+    .bot-message {
+        background: var(--indigo-stone);
+    }
+    .chat-input {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+    }
+    .chat-input input {
+        flex: 1;
+        padding: 0.5rem;
+        background: var(--kohl-black);
+        border: 1px solid var(--kumkum-gold);
+        color: var(--sandalwood-cream);
+        border-radius: 5px;
+    }
+    .chat-input button {
+        background: var(--peepal-green);
+        color: var(--sandalwood-cream);
+        border: none;
+        padding: 0.5rem 1.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+    .chat-input button:hover {
+        background: var(--kumkum-gold);
+    }
+    #mic-btn {
+        transition: all 0.3s ease;
+        box-shadow: 0 0 5px rgba(110, 140, 97, 0.5); /* Subtle shadow when idle */
+    }
+    #mic-btn.recording {
+        background: var(--alert-red);
+        box-shadow: var(--glow-red); /* Glowing effect */
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+    #mic-btn i {
+        transition: transform 0.3s ease;
+    }
+    #mic-btn.recording i {
+        transform: scale(1.3); /* Slightly larger icon when recording */
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+        100% { transform: scale(1); }
+    }
+    @media (max-width: 768px) {
+        .insurance-section, .chatbot-section {
+            margin: 4rem 0.5rem 1rem;
+        }
+        .chatbox {
+            height: 300px;
+        }
+        #mic-btn {
+            width: 40px;
+            height: 40px;
+        }
+        #mic-btn i {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+<script>
+    const chatbox = document.getElementById('chatbox');
+    const userInput = document.getElementById('user-input');
+    const sendBtn = document.getElementById('send-btn');
+    const micBtn = document.getElementById('mic-btn');
+    const languageSelect = document.getElementById('language');
+
+    function addMessage(message, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('chat-message', isUser ? 'user-message' : 'bot-message');
+        messageDiv.textContent = message;
+        chatbox.appendChild(messageDiv);
+        chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    async function sendMessage(message) {
+        if (!message.trim()) return;
+
+        addMessage(message, true);
+        userInput.value = '';
+
+        const language = languageSelect.value;
+        const data = { message, language };
+
+        try {
+            const response = await fetch('/insurance_chat', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                addMessage(result.response);
+            } else {
+                throw new Error(result.error || 'Failed to get response');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            addMessage('Sorry, there was an error. Please try again later.');
+        }
+    }
+
+    sendBtn.addEventListener('click', () => sendMessage(userInput.value));
+    userInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage(userInput.value);
+    });
+
+    // Voice Input Functionality
+    let recognition;
+    if ('webkitSpeechRecognition' in window) {
+        recognition = new webkitSpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.lang = 'en-US'; // Default language, will update dynamically
+
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            userInput.value = transcript;
+            sendMessage(transcript);
+            micBtn.classList.remove('recording');
+        };
+
+        recognition.onerror = (event) => {
+            console.error('Speech recognition error:', event.error);
+            addMessage('Sorry, I couldn’t understand your voice. Please try typing or speaking again.');
+            micBtn.classList.remove('recording');
+        };
+
+        recognition.onend = () => {
+            micBtn.classList.remove('recording');
+        };
+    }
+
+    micBtn.addEventListener('click', () => {
+        if (!recognition) {
+            addMessage('Voice input is not supported in your browser. Please type your question.');
+            return;
+        }
+
+        const language = languageSelect.value;
+        recognition.lang = language === 'en-US' ? 'en-US' :
+                          language === 'hi-IN' ? 'hi-IN' :
+                          language === 'kn-IN' ? 'kn-IN' :
+                          language === 'ta-IN' ? 'ta-IN' :
+                          language === 'te-IN' ? 'te-IN' : 'en-US';
+
+        micBtn.classList.add('recording');
+        recognition.start();
+    });
+
+    // Update language on selection
+    languageSelect.addEventListener('change', () => {
+        const language = languageSelect.value;
+        if (recognition) {
+            recognition.lang = language === 'en-US' ? 'en-US' :
+                              language === 'hi-IN' ? 'hi-IN' :
+                              language === 'kn-IN' ? 'kn-IN' :
+                              language === 'ta-IN' ? 'ta-IN' :
+                              language === 'te-IN' ? 'te-IN' : 'en-US';
+        }
+    });
+</script>
+{% endblock %}

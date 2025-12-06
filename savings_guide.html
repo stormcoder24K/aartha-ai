@@ -1,0 +1,351 @@
+{% extends "base.html" %}
+
+{% block title %}Aartha.ai - Savings Account Guide{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section position-relative text-center" style="min-height: 60vh; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem; margin-top: 3rem;">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4" style="color: var(--kumkum-gold); text-shadow: 2px 2px 4px var(--shadow-dark);">
+            Savings Account Guide
+        </h1>
+        <p class="lead mb-5 fs-4" style="color: var(--sandalwood-cream); max-width: 800px; margin: 0 auto;">
+            Learn how to manage your savings account with simple, step-by-step guidance in your preferred language.
+        </p>
+    </div>
+</section>
+
+<!-- Savings Account Guide Section -->
+<section class="py-5" style="background: linear-gradient(180deg, var(--indigo-stone) 0%, var(--kohl-black) 100%);">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg p-4" style="background: var(--regal-midnight-blue); color: var(--sandalwood-cream); border-radius: 15px;">
+                    <div class="card-body">
+                        <h2 class="fw-bold text-center mb-4" style="color: var(--kumkum-gold);">Savings Account Assistance</h2>
+                        
+                        <p class="mb-4">Ask questions about your savings account, like how to check your balance, set up a recurring deposit, or understand interest. Our AI will guide you step by step.</p>
+                        
+                        <!-- Language Selection -->
+                        <div class="mb-4">
+                            <label for="language-select" class="form-label fw-semibold">Select Your Language:</label>
+                            <select id="language-select" class="form-select" style="background: var(--kohl-black); color: var(--sandalwood-cream); border: 1px solid var(--peepal-green);">
+                                <option value="en-US">English</option>
+                                <option value="hi-IN">हिन्दी (Hindi)</option>
+                                <option value="kn-IN">ಕನ್ನಡ (Kannada)</option>
+                                <option value="ta-IN">தமிழ் (Tamil)</option>
+                                <option value="te-IN">తెలుగు (Telugu)</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Voice Input Section -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-center mb-3">
+                                <button id="startRecording" class="btn btn-lg px-4 py-2 me-2" style="background: var(--peepal-green); color: var(--sandalwood-cream); border: none; border-radius: 50px;">
+                                    <i class="fas fa-microphone me-2"></i> Start Speaking
+                                </button>
+                                <button id="stopRecording" class="btn btn-lg px-4 py-2" style="background: var(--kumkum-gold); color: var(--kohl-black); border: none; border-radius: 50px; display: none;">
+                                    <i class="fas fa-stop me-2"></i> Stop
+                                </button>
+                            </div>
+                            <p id="recordingStatus" class="text-center mb-0" style="font-style: italic; color: var(--sandalwood-cream);"></p>
+                        </div>
+                        
+                        <!-- Text Input Alternative -->
+                        <div class="mb-4">
+                            <p class="text-center" style="color: var(--sandalwood-cream);">- OR -</p>
+                            <label for="savings-query" class="form-label fw-semibold">Type your savings account question:</label>
+                            <textarea id="savings-query" class="form-control mb-3" rows="4" placeholder="Example: How do I check my savings account balance? I want to know how much money I have." style="background: var(--kohl-black); color: var(--sandalwood-cream); border: 1px solid var(--peepal-green);"></textarea>
+                            <div class="d-flex justify-content-center">
+                                <button id="submitQuery" class="btn btn-lg px-4 py-2" style="background: var(--kumkum-gold); color: var(--kohl-black); border: none; border-radius: 50px;">
+                                    Get Help <i class="fas fa-arrow-right ms-2"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Response Card -->
+                <div id="response-card" class="card border-0 shadow-lg mt-4 p-4" style="background: var(--indigo-stone); color: var(--sandalwood-cream); border-radius: 15px; display: none;">
+                    <div class="card-body">
+                        <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">Savings Account Instructions</h3>
+                        <div id="guidance-container" class="p-3" style="background: rgba(18, 18, 18, 0.3); border-radius: 10px;">
+                            <div id="loading-spinner" class="text-center py-5" style="display: none;">
+                                <div class="spinner-border" role="status" style="color: var(--kumkum-gold);">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="mt-3">Preparing your guidance...</p>
+                            </div>
+                            <div id="guidance-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Savings Account Tips Section -->
+<section class="py-5" style="background: var(--kohl-black);">
+    <div class="container py-3">
+        <h2 class="text-center fw-bold mb-5" style="color: var(--sandalwood-cream); font-size: 2rem; letter-spacing: 1px;">
+            Savings Account Tips & Common Tasks
+        </h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 border-0 shadow-lg" style="background: var(--regal-midnight-blue); color: var(--sandalwood-cream); transition: transform 0.3s ease;">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-piggy-bank fa-3x mb-3" style="color: var(--kumkum-gold);"></i>
+                        <h4 class="fw-bold" style="color: var(--sandalwood-cream);">Check Balance</h4>
+                        <p>Learn how to see how much money you have in your savings account.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 border-0 shadow-lg" style="background: var(--regal-midnight-blue); color: var(--sandalwood-cream); transition: transform 0.3s ease;">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-hand-holding-usd fa-3x mb-3" style="color: var(--kumkum-gold);"></i>
+                        <h4 class="fw-bold" style="color: var(--sandalwood-cream);">Earn Interest</h4>
+                        <p>Understand how your savings account earns extra money over time.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 border-0 shadow-lg" style="background: var(--regal-midnight-blue); color: var(--sandalwood-cream); transition: transform 0.3s ease;">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-sync-alt fa-3x mb-3" style="color: var(--kumkum-gold);"></i>
+                        <h4 class="fw-bold" style="color: var(--sandalwood-cream);">Recurring Deposit</h4>
+                        <p>Save a small amount every month to grow your savings safely.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 border-0 shadow-lg" style="background: var(--regal-midnight-blue); color: var(--sandalwood-cream); transition: transform 0.3s ease;">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-file-invoice fa-3x mb-3" style="color: var(--kumkum-gold);"></i>
+                        <h4 class="fw-bold" style="color: var(--sandalwood-cream);">Account Statement</h4>
+                        <p>Get a record of your savings account transactions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Savings Account Security Tips -->
+<section class="py-5" style="background: linear-gradient(180deg, var(--kohl-black) 0%, var(--indigo-stone) 100%);">
+    <div class="container py-3">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="fw-bold mb-4" style="color: var(--kumkum-gold);">Savings Account Security Tips</h2>
+                <ul class="list-unstyled" style="color: var(--sandalwood-cream);">
+                    <li class="mb-3 d-flex align-items-start">
+                        <i class="fas fa-user-lock mt-1 me-3" style="color: var(--peepal-green);"></i>
+                        <div>
+                            <h5 class="fw-bold" style="color: var(--sandalwood-cream);">Keep Passbook Safe</h5>
+                            <p>Store your passbook or account details in a secure place to avoid misuse.</p>
+                        </div>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start">
+                        <i class="fas fa-mobile-alt mt-1 me-3" style="color: var(--peepal-green);"></i>
+                        <div>
+                            <h5 class="fw-bold" style="color: var(--sandalwood-cream);">Enable SMS Alerts</h5>
+                            <p>Get notifications for every transaction to stay updated on your account activity.</p>
+                        </div>
+                    </li>
+                    <li class="mb-3 d-flex align-items-start">
+                        <i class="fas fa-exclamation-circle mt-1 me-3" style="color: var(--peepal-green);"></i>
+                        <div>
+                            <h5 class="fw-bold" style="color: var(--sandalwood-cream);">Monitor Transactions</h5>
+                            <p>Regularly check your account statement for any unknown transactions.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="p-4 rounded-3" style="background: rgba(18, 18, 18, 0.4);">
+                    <i class="fas fa-lock fa-5x mb-4" style="color: var(--kumkum-gold);"></i>
+                    <h3 class="fw-bold" style="color: var(--sandalwood-cream);">Need Help?</h3>
+                    <p class="mb-4" style="color: var(--sandalwood-cream);">If you notice suspicious activity in your savings account, contact your bank immediately.</p>
+                    <a href="#" class="btn btn-lg px-4 py-2" style="background: var(--peepal-green); color: var(--sandalwood-cream); border: none; border-radius: 50px;">
+                        Contact Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    // Speech Recognition Setup
+    let recognition;
+    let isRecording = false;
+    const startRecordingBtn = document.getElementById('startRecording');
+    const stopRecordingBtn = document.getElementById('stopRecording');
+    const recordingStatus = document.getElementById('recordingStatus');
+    const submitBtn = document.getElementById('submitQuery');
+    const textInput = document.getElementById('savings-query');
+    const responseCard = document.getElementById('response-card');
+    const guidanceContent = document.getElementById('guidance-content');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const languageSelect = document.getElementById('language-select');
+    
+    // Initialize speech recognition with browser compatibility check
+    function initSpeechRecognition() {
+        window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        
+        if (window.SpeechRecognition) {
+            recognition = new SpeechRecognition();
+            recognition.continuous = true;
+            recognition.interimResults = true;
+            
+            recognition.onstart = function() {
+                isRecording = true;
+                recordingStatus.textContent = "Listening... Speak now.";
+                startRecordingBtn.style.display = "none";
+                stopRecordingBtn.style.display = "inline-block";
+            };
+            
+            recognition.onresult = function(event) {
+                let interimTranscript = '';
+                let finalTranscript = '';
+                
+                for (let i = event.resultIndex; i < event.results.length; i++) {
+                    const transcript = event.results[i][0].transcript;
+                    if (event.results[i].isFinal) {
+                        finalTranscript += transcript;
+                    } else {
+                        interimTranscript += transcript;
+                    }
+                }
+                
+                if (finalTranscript) {
+                    textInput.value = finalTranscript;
+                    recordingStatus.textContent = "Captured: " + finalTranscript;
+                } else if (interimTranscript) {
+                    recordingStatus.textContent = "Listening: " + interimTranscript;
+                }
+            };
+            
+            recognition.onerror = function(event) {
+                console.error('Speech recognition error:', event.error);
+                recordingStatus.textContent = "Error: " + event.error;
+                resetRecording();
+            };
+            
+            recognition.onend = function() {
+                resetRecording();
+            };
+            
+            return true;
+        } else {
+            startRecordingBtn.disabled = true;
+            recordingStatus.textContent = "Speech recognition not supported in this browser. Please type your question instead.";
+            return false;
+        }
+    }
+    
+    function resetRecording() {
+        isRecording = false;
+        startRecordingBtn.style.display = "inline-block";
+        stopRecordingBtn.style.display = "none";
+        if (recognition) {
+            recognition.stop();
+        }
+    }
+    
+    // Start voice recording
+    startRecordingBtn.addEventListener('click', function() {
+        if (!recognition) {
+            if (!initSpeechRecognition()) {
+                return;
+            }
+        }
+        
+        try {
+            recognition.lang = languageSelect.value; // Set language for speech recognition
+            recognition.start();
+        } catch (e) {
+            console.error('Error starting speech recognition:', e);
+            recordingStatus.textContent = "Error starting microphone. Please try again.";
+        }
+    });
+    
+    // Stop voice recording
+    stopRecordingBtn.addEventListener('click', function() {
+        resetRecording();
+    });
+    
+    // Submit text or transcript for processing
+    submitBtn.addEventListener('click', function() {
+        const query = textInput.value.trim();
+        const selectedLanguage = languageSelect.value;
+        
+        if (!query) {
+            alert("Please describe your savings account question or use voice recording.");
+            return;
+        }
+        
+        // Show response card and loading spinner
+        responseCard.style.display = "block";
+        guidanceContent.innerHTML = "";
+        loadingSpinner.style.display = "block";
+        
+        // Scroll to response card
+        responseCard.scrollIntoView({ behavior: 'smooth' });
+        
+        // Make API request
+        fetch('/process_savings_query', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                query: query,
+                language: selectedLanguage
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            loadingSpinner.style.display = "none";
+            
+            if (data.error) {
+                guidanceContent.innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
+            } else {
+                // Format and display the guidance
+                let formattedGuidance;
+                if (data.guidance.includes('-')) {
+                    // If guidance already contains bullet points, preserve the format
+                    formattedGuidance = data.guidance.replace(/\n/g, '<br>');
+                } else {
+                    // Otherwise, add some basic formatting
+                    formattedGuidance = data.guidance.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>');
+                    formattedGuidance = `<p>${formattedGuidance}</p>`;
+                }
+                
+                guidanceContent.innerHTML = formattedGuidance;
+            }
+        })
+        .catch(error => {
+            loadingSpinner.style.display = "none";
+            guidanceContent.innerHTML = `<div class="alert alert-danger">Sorry, there was an error processing your request. Please try again.</div>`;
+            console.error('Error:', error);
+        });
+    });
+    
+    // Card hover effects
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
+    
+    // Initialize speech recognition if available
+    document.addEventListener('DOMContentLoaded', function() {
+        initSpeechRecognition();
+    });
+</script>
+{% endblock %}

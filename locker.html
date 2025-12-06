@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block title %}Aartha.ai - Locker Facility{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section position-relative text-center" style="min-height: 60vh; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem; margin-top: 3rem;">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4" style="color: var(--kumkum-gold); text-shadow: 2px 2px 4px var(--shadow-dark);">
+            Locker Facility
+        </h1>
+        <p class="lead mb-5 fs-4" style="color: var(--sandalwood-cream); max-width: 800px; margin: 0 auto;">
+            Keep your savings and valuables safe with our secure locker service, available in your preferred language.
+        </p>
+    </div>
+</section>
+
+<!-- Locker Facility Section -->
+<section class="py-5" style="background: linear-gradient(180deg, var(--indigo-stone) 0%, var(--kohl-black) 100%);">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg p-4" style="background: var(--regal-midnight-blue); color: var(--sandalwood-cream); border-radius: 15px;">
+                    <div class="card-body">
+                        <h2 class="fw-bold text-center mb-4" style="color: var(--kumkum-gold);">Secure Your Valuables</h2>
+                        
+                        <!-- Language Selection -->
+                        <div class="mb-4">
+                            <label for="language-select" class="form-label fw-semibold">Select Your Language:</label>
+                            <select id="language-select" class="form-select" style="background: var(--kohl-black); color: var(--sandalwood-cream); border: 1px solid var(--peepal-green);">
+                                <option value="en-US">English</option>
+                                <option value="hi-IN">हिन्दी (Hindi)</option>
+                                <option value="kn-IN">ಕನ್ನಡ (Kannada)</option>
+                                <option value="ta-IN">தமிழ் (Tamil)</option>
+                                <option value="te-IN">తెలుగు (Telugu)</option>
+                            </select>
+                        </div>
+
+                        <!-- Information Section -->
+                        <div id="info-container">
+                            <div class="info" data-lang="en-US">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">Why Use a Locker?</h3>
+                                <p>A locker keeps your money, jewelry, or important papers safe from theft or loss. For example, you can store your crop sale earnings or family gold securely at a bank. It’s better than hiding things at home where they can be stolen or damaged.</p>
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">How It Works</h3>
+                                <p>Visit your local bank with an ID. They will give you a small, locked space just for you. You can add or take out your items anytime, and only you have the key or code. Fees are low, often less than 100 rupees a month.</p>
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">Benefits</h3>
+                                <p>- Peace of mind knowing your valuables are safe.<br>- Easy access whenever you need them.<br>- Protection from fire or floods, common in villages.</p>
+                            </div>
+                            <div class="info" data-lang="hi-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">लॉकर क्यों इस्तेमाल करें?</h3>
+                                <p>लॉकर आपका पैसा, जेवर या महत्वपूर्ण कागजात चोरी या खोने से सुरक्षित रखता है। उदाहरण के लिए, आप अपनी फसल की कमाई या पारिवारिक सोने को बैंक में सुरक्षित रख सकते हैं। घर में छिपाने से बेहतर है, जहां वे चोरी हो सकते हैं या खराब हो सकते हैं।</p>
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">यह कैसे काम करता है</h3>
+                                <p>अपने स्थानीय बैंक में आईडी के साथ जाएं। वे आपको एक छोटा, ताला लगा हुआ स्थान देंगे जो सिर्फ आपके लिए होगा। आप कभी भी अपने सामान जोड़ सकते हैं या निकाल सकते हैं, और सिर्फ आपके पास कुंजी या कोड होगी। फीस कम है, अक्सर महीने में 100 रुपये से कम।</p>
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">लाभ</h3>
+                                <p>- यह जानकर सुकून कि आपका सामान सुरक्षित है।<br>- जब भी जरूरत हो आसानी से पहुंच।<br>- आग या बाढ़ से सुरक्षा, जो गांवों में आम है।</p>
+                            </div>
+                            <div class="info" data-lang="kn-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">ಲಾಕರ್ ಯಾಕೆ ಬಳಸಬೇಕು?</h3>
+                                <p>ಲಾಕರ್ ನಿಮ್ಮ ಹಣ, ಆಭರಣಗಳು ಅಥವಾ ಮುಖ್ಯ ದಾಖಲೆಗಳನ್ನು ಚೋರಿಯಾಗುವುದು ಅಥವಾ ಕಳೆದುಹೋಗುವುದರಿಂದ ಸುರಕ್ಷಿತವಾಗಿರಿಸುತ್ತದೆ। ಉದಾಹರಣೆಗೆ, ನೀವು ನಿಮ್ಮ ಬೆಳೆ ಮಾರಾಟದ ಆದಾಯ ಅಥವಾ ಕುಟುಂಬ ಚಿನ್ನವನ್ನು ಬ್ಯಾಂಕ್‌ನಲ್ಲಿ ಸುರಕ್ಷಿತವಾಗಿ ಇರಿಸಬಹುದು। ಮನೆಯಲ್ಲಿ ಮರೆಯುವುದಕ್ಕಿಂತ ಇದು ಉತ್ತಮ, ಅಲ್ಲಿ ಅವು ಚೋರಿಯಾಗಬಹುದು ಅಥವಾ ಹಾನಿಯಾಗಬಹುದು。</p>
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">ಇದು ಹೇಗೆ ಕೆಲಸ ಮಾಡುತ್ತದೆ</h3>
+                                <p>ನಿಮ್ಮ ಸ್ಥಳೀಯ ಬ್ಯಾಂಕ್‌ಗೆ ಗುರುತಿನ ಚೀಟಿಯೊಂದಿಗೆ ಭೇಟಿ ನೀಡಿ। ಅವರು ನಿಮಗೆ ಒಂದು ಚಿಕ್ಕ, ಲಾಕ್ ಮಾಡಿದ ಸ್ಥಳವನ್ನು ನೀಡುತ್ತಾರೆ, ಇದು ಕೇವಲ ನಿಮಗಾಗಿ ಇರುತ್ತದೆ। ನೀವು ಯಾವಾಗ ಬೇಕಾದರೂ ಐಟಂಗಳನ್ನು ಸೇರಿಸಬಹುದು ಅಥವಾ ತೆಗೆಯಬಹುದು, ಮತ್ತು ಕೇವಲ ನಿಮಗೆ ಮಾತ್ರ ಕೀಲಿ ಅಥವಾ ಕೋಡ್ ಇರುತ್ತದೆ। ಶುಲ್ಕ ಕಡಿಮೆಯಿದೆ, ತಿಂಗಳಿಗೆ 100 ರೂಪಾಯಿಗಳಿಗಿಂತ ಕಡಿಮೆಯಾಗಿದೆ।</p>
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">ಪ್ರಯೋಜನಗಳು</h3>
+                                <p>- ನಿಮ್ಮ ಮೌಲ್ಯಯುತ ವಸ್ತುಗಳು ಸುರಕ್ಷಿತವಾಗಿವೆ ಎಂದು ಗೊತ್ತಿರುವ ಮನಸ್ಸಿನ ಶಾಂತಿ।<br>- ಬೇಕಾದಾಗ ಯಾವಾಗ ಬೇಕಾದರೂ ಸುಲಭವಾಗಿ ಪ್ರವೇಶ।<br>- ಗ್ರಾಮಗಳಲ್ಲಿ ಸಾಮಾನ್ಯವಾಗಿರುವ ಬೆಂಕಿ ಅಥವಾ ಪ್ರವಾಹದಿಂದ ರಕ್ಷಣೆ।</p>
+                            </div>
+                            <div class="info" data-lang="ta-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">லாக்கர் ஏன் பயன்படுத்த வேண்டும்?</h3>
+                                <p>லாக்கர் உங்கள் பணம், நகைகள் அல்லது முக்கிய ஆவணங்களை திருடுதல் அல்லது இழப்பதிலிருந்து பாதுகாக்கிறது। உதாரணமாக, நீங்கள் உங்கள் பயிர் விற்பனை வருவாயை அல்லது குடும்ப நகைகளை வங்கியில் பாதுகாப்பாக வைக்கலாம்। வீட்டில் மறைத்து வைப்பதை விட இது சிறந்தது, அங்கு அவை திருடப்படலாம் அல்லது சேதமடையலாம்。</p>
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">இது எப்படி செயல்படுகிறது</h3>
+                                <p>உங்கள் உள்ளூர் வங்கிக்கு அடையாள அட்டையுடன் செல்லவும்। அவர்கள் உங்களுக்கு ஒரு சிறிய, பூட்டப்பட்ட இடத்தை கொடுப்பார்கள், இது உங்களுக்காக மட்டுமே உள்ளது। நீங்கள் எப்போது வேண்டுமானாலும் பொருட்களை சேர்க்கலாம் அல்லது எடுக்கலாம், மேலும் உங்களுக்கு மட்டுமே விசை அல்லது குறியீடு உள்ளது। கட்டணம் குறைவு, பெரும்பாலும் மாதம் 100 ரூபாய்க்கு குறைவாக உள்ளது।</p>
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">நன்மைகள்</h3>
+                                <p>- உங்கள் மதிப்புமிக்க பொருட்கள் பாதுகாப்பாக உள்ளன என்பதை அறிந்து அமைதி।<br>- தேவைப்படும்போது எப்போதும் எளிதாக அணுகல்।<br>- கிராமங்களில் பொதுவான தீ அல்லது வெள்ளத்திலிருந்து பாதுகாப்பு।</p>
+                            </div>
+                            <div class="info" data-lang="te-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">లాకర్ ఎందుకు వాడాలి?</h3>
+                                <p>లాకర్ మీ డబ్బు, ఆభరణాలు లేదా ముఖ్యమైన పత్రాలను దొంగతనం లేదా కోల్పోత నుండి సురక్షితంగా ఉంచుతుంది। ఉదాహరణకు, మీ పంట అమ్మక ఆదాయం లేదా కుటుంబ బంగారాన్ని బ్యాంకులో సురక్షితంగా ఉంచవచ్చు। ఇంట్లో దాచినవి కాటునా దొంగిలించబడొచ్చు లేదా చెడిపోవచ్చు కాబట్టి ఇది మంచిది。</p>
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">ఇది ఎలా పనిచేస్తుంది</h3>
+                                <p>మీ స్థానిక బ్యాంక్‌కు ఐడీతో వెళ్లండి। వారు మీకు ఒక చిన్న, లాక్ చేసిన స్థలాన్ని ఇస్తారు, ఇది కేవలం మీదే। మీరు ఎప్పుడైనా అంశాలను జోడించవచ్చు లేదా తీసుకోవచ్చు, మరియు కేవలం మీకు మాత్రమే కీ లేదా కోడ్ ఉంటుంది। రుసుము తక్కువ, తరచూ నెలకు 100 రూపాయల కంటే తక్కువ।</p>
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">ప్రయోజనాలు</h3>
+                                <p>- మీ విలువైన వస్తువులు సురక్షితంగా ఉన్నట్లు తెలిసి శాంతి।<br>- అవసరమైనప్పుడు ఎప్పుడైనా సులభంగా యాక్సెస్।<br>- గ్రామాల్లో సాధారణమైన అగ్ని లేదా వరదల నుండి రక్షణ।</p>
+                            </div>
+                        </div>
+
+                        <!-- Locker Facility Search Form -->
+                        <div class="mt-4">
+                            <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">Find Locker Facilities</h3>
+                            <form id="locker-form" class="mb-4">
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold">State</label>
+                                    <input type="text" class="form-control" id="state" name="state" style="background: var(--kohl-black); color: var(--sandalwood-cream); border: 1px solid var(--peepal-green);" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-semibold">Village/Town</label>
+                                    <input type="text" class="form-control" id="village" name="village" style="background: var(--kohl-black); color: var(--sandalwood-cream); border: 1px solid var(--peepal-green);" required>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-lg px-4 py-2" style="background: var(--kumkum-gold); color: var(--kohl-black); border: none; border-radius: 50px;">
+                                        Find Lockers <i class="fas fa-search ms-2"></i>
+                                    </button>
+                                </div>
+                            </form>
+                            <div id="response-card" class="card border-0 shadow-lg mt-4 p-4" style="background: var(--indigo-stone); color: var(--sandalwood-cream); border-radius: 15px; display: none;">
+                                <div class="card-body">
+                                    <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">Locker Facilities</h3>
+                                    <div id="response-content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const languageSelect = document.getElementById('language-select');
+    const infoSections = document.querySelectorAll('.info');
+    const lockerForm = document.getElementById('locker-form');
+    const responseCard = document.getElementById('response-card');
+    const responseContent = document.getElementById('response-content');
+
+    // Language selector handler
+    languageSelect.addEventListener('change', function() {
+        const selectedLanguage = this.value;
+        infoSections.forEach(info => {
+            info.style.display = info.getAttribute('data-lang') === selectedLanguage ? 'block' : 'none';
+        });
+    });
+
+    // Set default language to English on page load
+    window.addEventListener('load', function() {
+        languageSelect.value = 'en-US';
+        infoSections.forEach(info => {
+            info.style.display = info.getAttribute('data-lang') === 'en-US' ? 'block' : 'none';
+        });
+    });
+
+    // Form submission handler
+    lockerForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(lockerForm);
+        const state = formData.get('state').trim();
+        const village = formData.get('village').trim();
+        const language = languageSelect.value;
+
+        if (!state || !village) {
+            responseCard.style.display = 'block';
+            responseContent.innerHTML = '<p style="color: #dc3545;">Please enter both state and village/town.</p>';
+            return;
+        }
+
+        try {
+            const response = await fetch('/get_locker_facilities', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ state, village, language })
+            });
+
+            const data = await response.json();
+            responseCard.style.display = 'block';
+
+            if (data.error) {
+                responseContent.innerHTML = `<p style="color: #dc3545;">Error: ${data.error}</p>`;
+            } else {
+                responseContent.innerHTML = `<pre style="white-space: pre-wrap; font-family: 'Montserrat', sans-serif; color: var(--sandalwood-cream);">${data.facilities}</pre>`;
+            }
+        } catch (error) {
+            responseCard.style.display = 'block';
+            responseContent.innerHTML = '<p style="color: #dc3545;">Failed to fetch locker facilities. Please try again.</p>';
+        }
+
+        // Scroll to response card
+        responseCard.scrollIntoView({ behavior: 'smooth' });
+
+        // Reset form
+        lockerForm.reset();
+    });
+</script>
+{% endblock %}

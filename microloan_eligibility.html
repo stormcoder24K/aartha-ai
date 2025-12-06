@@ -1,0 +1,276 @@
+{% extends "base.html" %}
+
+{% block title %}Aartha.ai - Microloan Eligibility Estimator{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section position-relative text-center" style="min-height: 60vh; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem; margin-top: 3rem;">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4" style="color: var(--kumkum-gold); text-shadow: 2px 2px 4px var(--shadow-dark);">
+            Microloan Eligibility Estimator
+        </h1>
+        <p class="lead mb-5 fs-4" style="color: var(--sandalwood-cream); max-width: 800px; margin: 0 auto;">
+            Answer simple questions to estimate your eligibility for a microloan in your preferred language.
+        </p>
+    </div>
+</section>
+
+<!-- Microloan Eligibility Section -->
+<section class="py-5" style="background: linear-gradient(180deg, var(--indigo-stone) 0%, var(--kohl-black) 100%);">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg p-4" style="background: var(--regal-midnight-blue); color: var(--sandalwood-cream); border-radius: 15px;">
+                    <div class="card-body">
+                        <h2 class="fw-bold text-center mb-4" style="color: var(--kumkum-gold);">Microloan Eligibility Check</h2>
+                        
+                        <p class="mb-4">Answer the questions below to see if you might qualify for a microloan to support farming or small business needs.</p>
+                        
+                        <!-- Language Selection -->
+                        <div class="mb-4">
+                            <label for="language-select" class="form-label fw-semibold">Select Your Language:</label>
+                            <select id="language-select" class="form-select" style="background: var(--kohl-black); color: var(--sandalwood-cream); border: 1px solid var(--peepal-green);">
+                                <option value="en-US">English</option>
+                                <option value="hi-IN">हिन्दी (Hindi)</option>
+                                <option value="kn-IN">ಕನ್ನಡ (Kannada)</option>
+                                <option value="ta-IN">தமிழ் (Tamil)</option>
+                                <option value="te-IN">తెలుగు (Telugu)</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Questionnaire Form -->
+                        <form id="eligibility-form" class="mb-4">
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">1. Do you own land or have a small business?</label>
+                                <div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="q1" value="yes" required>
+                                        <label class="form-check-label" style="color: var(--sandalwood-cream);">Yes</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="q1" value="no">
+                                        <label class="form-check-label" style="color: var(--sandalwood-cream);">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">2. Do you have a steady income (e.g., from crops or trade)?</label>
+                                <div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="q2" value="yes" required>
+                                        <label class="form-check-label" style="color: var(--sandalwood-cream);">Yes</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="q2" value="no">
+                                        <label class="form-check-label" style="color: var(--sandalwood-cream);">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">3. Do you have any existing loans or debts?</label>
+                                <div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="q3" value="yes" required>
+                                        <label class="form-check-label" style="color: var(--sandalwood-cream);">Yes</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="q3" value="no">
+                                        <label class="form-check-label" style="color: var(--sandalwood-cream);">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">4. How many people are in your family? (Example: 4 members)</label>
+                                <input type="number" class="form-control" id="q4" name="q4" min="0" max="20" style="background: var(--kohl-black); color: var(--sandalwood-cream); border: 1px solid var(--peepal-green);" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">5. Do you have a bank account?</label>
+                                <div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="q5" value="yes" required>
+                                        <label class="form-check-label" style="color: var(--sandalwood-cream);">Yes</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input type="radio" class="form-check-input" name="q5" value="no">
+                                        <label class="form-check-label" style="color: var(--sandalwood-cream);">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">6. How much money do you earn each month? (Example: 5000 rupees)</label>
+                                <input type="number" class="form-control" id="q6" name="q6" min="0" style="background: var(--kohl-black); color: var(--sandalwood-cream); border: 1px solid var(--peepal-green);" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">7. What is your job? (Example: farmer, shopkeeper)</label>
+                                <input type="text" class="form-control" id="q7" name="q7" placeholder="e.g., farmer, shopkeeper" style="background: var(--kohl-black); color: var(--sandalwood-cream); border: 1px solid var(--peepal-green);" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-semibold">8. Why do you want a loan? (Example: to buy a cow or seeds)</label>
+                                <input type="text" class="form-control" id="q8" name="q8" placeholder="e.g., to buy a cow or seeds" style="background: var(--kohl-black); color: var(--sandalwood-cream); border: 1px solid var(--peepal-green);" required>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-lg px-4 py-2" style="background: var(--kumkum-gold); color: var(--kohl-black); border: none; border-radius: 50px;">
+                                    Estimate Eligibility <i class="fas fa-calculator ms-2"></i>
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <!-- Response Card -->
+                        <div id="response-card" class="card border-0 shadow-lg mt-4 p-4" style="background: var(--indigo-stone); color: var(--sandalwood-cream); border-radius: 15px; display: none;">
+                            <div class="card-body">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">Eligibility Estimate</h3>
+                                <div id="eligibility-container" class="p-3" style="background: rgba(18, 18, 18, 0.3); border-radius: 10px;">
+                                    <div id="loading-spinner" class="text-center py-5" style="display: none;">
+                                        <div class="spinner-border" role="status" style="color: var(--kumkum-gold);">
+                                            <span class="visually-hidden">Loading...</span>
+                                        </div>
+                                        <p class="mt-3">Calculating your eligibility...</p>
+                                    </div>
+                                    <div id="eligibility-content"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Microloan Tips Section -->
+<section class="py-5" style="background: var(--kohl-black);">
+    <div class="container py-3">
+        <h2 class="text-center fw-bold mb-5" style="color: var(--sandalwood-cream); font-size: 2rem; letter-spacing: 1px;">
+            Microloan Tips
+        </h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 border-0 shadow-lg" style="background: var(--regal-midnight-blue); color: var(--sandalwood-cream); transition: transform 0.3s ease;">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-seedling fa-3x mb-3" style="color: var(--kumkum-gold);"></i>
+                        <h4 class="fw-bold" style="color: var(--sandalwood-cream);">For Farming</h4>
+                        <p>Use loans to buy seeds or tools for your fields.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 border-0 shadow-lg" style="background: var(--regal-midnight-blue); color: var(--sandalwood-cream); transition: transform 0.3s ease;">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-store fa-3x mb-3" style="color: var(--kumkum-gold);"></i>
+                        <h4 class="fw-bold" style="color: var(--sandalwood-cream);">For Small Business</h4>
+                        <p>Invest in stock or equipment for your shop.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 border-0 shadow-lg" style="background: var(--regal-midnight-blue); color: var(--sandalwood-cream); transition: transform 0.3s ease;">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-hand-holding-usd fa-3x mb-3" style="color: var(--kumkum-gold);"></i>
+                        <h4 class="fw-bold" style="color: var(--sandalwood-cream);">Repay on Time</h4>
+                        <p>Pay back your loan to qualify for future loans.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 mb-4">
+                <div class="card h-100 border-0 shadow-lg" style="background: var(--regal-midnight-blue); color: var(--sandalwood-cream); transition: transform 0.3s ease;">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-question-circle fa-3x mb-3" style="color: var(--kumkum-gold);"></i>
+                        <h4 class="fw-bold" style="color: var(--sandalwood-cream);">Ask for Help</h4>
+                        <p>Contact your bank for loan advice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const eligibilityForm = document.getElementById('eligibility-form');
+    const responseCard = document.getElementById('response-card');
+    const eligibilityContent = document.getElementById('eligibility-content');
+    const loadingSpinner = document.getElementById('loading-spinner');
+    const languageSelect = document.getElementById('language-select');
+
+    eligibilityForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const formData = new FormData(eligibilityForm);
+        const answers = {
+            q1: formData.get('q1'),
+            q2: formData.get('q2'),
+            q3: formData.get('q3'),
+            q4: formData.get('q4'),
+            q5: formData.get('q5'),
+            q6: formData.get('q6'),
+            q7: formData.get('q7'),
+            q8: formData.get('q8')
+        };
+        const selectedLanguage = languageSelect.value;
+
+        // Show response card and loading spinner
+        responseCard.style.display = 'block';
+        eligibilityContent.innerHTML = '';
+        loadingSpinner.style.display = 'block';
+
+        // Scroll to response card
+        responseCard.scrollIntoView({ behavior: 'smooth' });
+
+        // Prepare query for Gemini API
+        const query = `Estimate microloan eligibility for a rural villager based on these answers:
+            - Owns land or business: ${answers.q1}
+            - Steady income: ${answers.q2}
+            - Existing loans: ${answers.q3}
+            - Dependents: ${answers.q4}
+            - Has bank account: ${answers.q5}
+            - Monthly earnings: ${answers.q6} rupees
+            - Job: ${answers.q7}
+            - Loan purpose: ${answers.q8}
+            Provide a simple eligibility estimate (e.g., 'Eligible' or 'Not Eligible' with reasons) in ${selectedLanguage}, using plain text with '-' as bullet markers for steps or reasons. Use examples relevant to rural life (e.g., buying seeds, starting a small shop). Assume the user has no prior financial knowledge.`;
+
+        // Make API request
+        fetch('/estimate_microloan_eligibility', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                query: query,
+                language: selectedLanguage
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            loadingSpinner.style.display = 'none';
+
+            if (data.error) {
+                eligibilityContent.innerHTML = `<div class="alert alert-danger">${data.error}</div>`;
+            } else {
+                // Format and display the eligibility result
+                let formattedResult;
+                if (data.eligibility.includes('-')) {
+                    formattedResult = data.eligibility.replace(/\n/g, '<br>');
+                } else {
+                    formattedResult = data.eligibility.replace(/\n\n/g, '</p><p>').replace(/\n/g, '<br>');
+                    formattedResult = `<p>${formattedResult}</p>`;
+                }
+                eligibilityContent.innerHTML = formattedResult;
+            }
+        })
+        .catch(error => {
+            loadingSpinner.style.display = 'none';
+            eligibilityContent.innerHTML = `<div class="alert alert-danger">Sorry, there was an error processing your request. Please try again.</div>`;
+            console.error('Error:', error);
+        });
+    });
+
+    // Card hover effects
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+        });
+    });
+</script>
+{% endblock %}

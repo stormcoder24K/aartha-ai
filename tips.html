@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}Aartha.ai - Savings & Budgeting Tips{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section position-relative text-center" style="min-height: 60vh; display: flex; align-items: center; justify-content: center; padding: 4rem 2rem; margin-top: 3rem;">
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-4" style="color: var(--kumkum-gold); text-shadow: 2px 2px 4px var(--shadow-dark);">
+            Savings & Budgeting Pointers
+        </h1>
+        <p class="lead mb-5 fs-4" style="color: var(--sandalwood-cream); max-width: 800px; margin: 0 auto;">
+            Learn simple ways to save money and plan your budget for a better future, in your preferred language.
+        </p>
+    </div>
+</section>
+
+<!-- Savings & Budgeting Tips Section -->
+<section class="py-5" style="background: linear-gradient(180deg, var(--indigo-stone) 0%, var(--kohl-black) 100%);">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg p-4" style="background: var(--regal-midnight-blue); color: var(--sandalwood-cream); border-radius: 15px;">
+                    <div class="card-body">
+                        <h2 class="fw-bold text-center mb-4" style="color: var(--kumkum-gold);">Savings & Budgeting Pointers</h2>
+                        
+                        <!-- Language Selection -->
+                        <div class="mb-4">
+                            <label for="language-select" class="form-label fw-semibold">Select Your Language:</label>
+                            <select id="language-select" class="form-select" style="background: var(--kohl-black); color: var(--sandalwood-cream); border: 1px solid var(--peepal-green);">
+                                <option value="en-US">English</option>
+                                <option value="hi-IN">हिन्दी (Hindi)</option>
+                                <option value="kn-IN">ಕನ್ನಡ (Kannada)</option>
+                                <option value="ta-IN">தமிழ் (Tamil)</option>
+                                <option value="te-IN">తెలుగు (Telugu)</option>
+                            </select>
+                        </div>
+
+                        <!-- Tips Container -->
+                        <div id="tips-container">
+                            <div class="tip" data-lang="en-US">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">1. Save a Little Every Month</h3>
+                                <p>After selling your crops or goods, keep a small amount aside (e.g., 100 rupees) before spending. Put it in a safe place or your bank account. Over time, this can grow to help during emergencies, like fixing a broken tool.</p>
+                            </div>
+                            <div class="tip" data-lang="en-US">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">2. Plan Your Spending</h3>
+                                <p>Make a simple budget. For example, if you earn 5000 rupees a month, decide how much goes to food (e.g., 2000 rupees), farming needs (e.g., 1500 rupees), and savings (e.g., 500 rupees). Stick to this plan to avoid overspending.</p>
+                            </div>
+                            <div class="tip" data-lang="en-US">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">3. Avoid Unnecessary Expenses</h3>
+                                <p>Skip buying things you don’t need, like extra snacks or fancy items. For example, instead of spending 200 rupees on a new shirt, use that money to buy seeds for your farm.</p>
+                            </div>
+                            <div class="tip" data-lang="en-US">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">4. Use a Bank Account</h3>
+                                <p>Keep your savings in a bank account instead of at home. It’s safer, and some banks give extra money (interest) over time. Visit your local bank to learn how to open one.</p>
+                            </div>
+
+                            <!-- Hindi Tips -->
+                            <div class="tip" data-lang="hi-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">1. हर महीने थोड़ा बचाएं</h3>
+                                <p>अपनी फसल या सामान बेचने के बाद, खर्च करने से पहले थोड़ा पैसा (जैसे, 100 रुपये) अलग रखें। इसे सुरक्षित जगह या अपने बैंक खाते में रखें। समय के साथ, यह आपात स्थिति में मदद कर सकता है, जैसे टूटा हुआ औजार ठीक करने में।</p>
+                            </div>
+                            <div class="tip" data-lang="hi-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">2. अपने खर्च की योजना बनाएं</h3>
+                                <p>एक साधारण बजट बनाएं। उदाहरण के लिए, यदि आप एक महीने में 5000 रुपये कमाते हैं, तो तय करें कि कितना खाने (जैसे, 2000 रुपये), खेती की जरूरतों (जैसे, 1500 रुपये), और बचत (जैसे, 500 रुपये) पर जाएगा। इस योजना पर टिके रहें ताकि अधिक खर्च न हो।</p>
+                            </div>
+                            <div class="tip" data-lang="hi-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">3. अनावश्यक खर्च से बचें</h3>
+                                <p>जो चीजें जरूरी नहीं हैं, उन्हें खरीदने से बचें, जैसे अतिरिक्त नाश्ता या शानदार सामान। उदाहरण के लिए, 200 रुपये में नया कुर्ता खरीदने के बजाय, उस पैसे से अपनी खेती के लिए बीज खरीदें।</p>
+                            </div>
+                            <div class="tip" data-lang="hi-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">4. बैंक खाते का उपयोग करें</h3>
+                                <p>अपनी बचत को घर पर रखने के बजाय बैंक खाते में रखें। यह सुरक्षित है, और कुछ बैंक समय के साथ अतिरिक्त पैसा (ब्याज) देते हैं। अपने स्थानीय बैंक में जाकर खाता कैसे खोलना है, यह जानें।</p>
+                            </div>
+
+                            <!-- Kannada Tips -->
+                            <div class="tip" data-lang="kn-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">1. ಪ್ರತಿ ತಿಂಗಳು ಸ್ವಲ್ಪ ಉಳಿಸಿ</h3>
+                                <p>ನಿಮ್ಮ ಬೆಳೆ ಅಥವಾ ಸಾಮಾನು ಮಾರಾಟ ಮಾಡಿದ ನಂತರ, ಖರ್ಚು ಮಾಡುವ ಮೊದಲು ಸ್ವಲ್ಪ ಹಣ (ಉದಾ., 100 ರೂಪಾಯಿ) ಬಿಡಿ. ಅದನ್ನು ಸುರಕ್ಷಿತ ಸ್ಥಳದಲ್ಲಿ ಅಥವಾ ನಿಮ್ಮ ಬ್ಯಾಂಕ್ ಖಾತೆಯಲ್ಲಿ ಇರಿಸಿ. ಕಾಲಾಂತರದಲ್ಲಿ, ಇದು ತುರ್ತು ಸಂದರ್ಭಗಳಲ್ಲಿ ಸಹಾಯ ಮಾಡಬಹುದು, ಉದಾಹರಣೆಗೆ ಹಾಳಾದ ಉಪಕರಣವನ್ನು ಸರಿಪಡಿಸಲು.</p>
+                            </div>
+                            <div class="tip" data-lang="kn-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">2. ನಿಮ್ಮ ಖರ್ಚನ್ನು ಯೋಜಿಸಿ</h3>
+                                <p>ಸರಳ ಬಜೆಟ್ ಮಾಡಿ. ಉದಾಹರಣೆಗೆ, ನೀವು ತಿಂಗಳಿಗೆ 5000 ರೂಪಾಯಿ ಗಳಿಸಿದರೆ, ಆಹಾರಕ್ಕೆ ಎಷ್ಟು (ಉದಾ., 2000 ರೂಪಾಯಿ), ಕೃಷಿ ಅಗತ್ಯಗಳಿಗೆ ಎಷ್ಟು (ಉದಾ., 1500 ರೂಪಾಯಿ), ಮತ್ತು ಉಳಿತಾಯಕ್ಕೆ ಎಷ್ಟು (ಉದಾ., 500 ರೂಪಾಯಿ) ಎಂದು ನಿರ್ಧರಿಸಿ. ಈ ಯೋಜನೆಗೆ ಬದ್ಧರಾಗಿರಿ ಆದ್ದರಿಂದ ಹೆಚ್ಚು ಖರ್ಚು ಮಾಡುವುದಿಲ್ಲ.</p>
+                            </div>
+                            <div class="tip" data-lang="kn-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">3. ಅನಗತ್ಯ ಖರ್ಚುಗಳನ್ನು ತಪ್ಪಿಸಿ</h3>
+                                <p>ಅಗತ್ಯವಿಲ್ಲದ ವಸ್ತುಗಳನ್ನು ಖರೀದಿಸುವುದನ್ನು ತಪ್ಪಿಸಿ, ಉದಾಹರಣೆಗೆ ಹೆಚ್ಚುವರಿ ತಿಂಡಿಗಳು ಅಥವಾ ಫ್ಯಾನ್ಸಿ ವಸ್ತುಗಳು. ಉದಾಹರಣೆಗೆ, 200 ರೂಪಾಯಿಗೆ ಹೊಸ ಅಂಗಿ ಖರೀದಿಸುವ ಬದಲು, ಆ ಹಣವನ್ನು ನಿಮ್ಮ ಕೃಷಿಗೆ ಬೀಜ ಖರೀದಿಸಲು ಬಳಸಿ.</p>
+                            </div>
+                            <div class="tip" data-lang="kn-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">4. ಬ್ಯಾಂಕ್ ಖಾತೆ ಬಳಸಿ</h3>
+                                <p>ನಿಮ್ಮ ಉಳಿತಾಯವನ್ನು ಮನೆಯಲ್ಲಿ ಇಡುವ ಬದಲು ಬ್ಯಾಂಕ್ ಖಾತೆಯಲ್ಲಿ ಇರಿಸಿ. ಇದು ಸುರಕ್ಷಿತವಾಗಿದೆ, ಮತ್ತು ಕೆಲವು ಬ್ಯಾಂಕ್‌ಗಳು ಸಮಯದೊಂದಿಗೆ ಹೆಚ್ಚುವರಿ ಹಣ (ಬಡ್ಡಿ) ನೀಡುತ್ತವೆ. ಖಾತೆ ತೆರೆಯುವುದು ಹೇಗೆ ಎಂದು ತಿಳಿಯಲು ನಿಮ್ಮ ಸ್ಥಳೀಯ ಬ್ಯಾಂಕ್‌ಗೆ ಭೇಟಿ ನೀಡಿ.</p>
+                            </div>
+
+                            <!-- Tamil Tips -->
+                            <div class="tip" data-lang="ta-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">1. ஒவ்வொரு மாதமும் சிறிது சேமியுங்கள்</h3>
+                                <p>உங்கள் பயிர்களை அல்லது பொருட்களை விற்ற பிறகு, செலவு செய்வதற்கு முன் ஒரு சிறிய தொகையை (எ.கா., 100 ரூபாய்) ஒதுக்கி வைக்கவும். அதை பாதுகாப்பான இடத்தில் அல்லது உங்கள் வங்கி கணக்கில் வைக்கவும். காலப்போக்கில், இது அவசர காலங்களில் உதவும், எடுத்துக்காட்டாக, பழுதடைந்த கருவியை சரிசெய்ய.</p>
+                            </div>
+                            <div class="tip" data-lang="ta-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">2. உங்கள் செலவைத் திட்டமிடுங்கள்</h3>
+                                <p>ஒரு எளிய பட்ஜெட் உருவாக்கவும். உதாரணமாக, நீங்கள் ஒரு மாதத்திற்கு 5000 ரூபாய் சம்பாதித்தால், உணவுக்கு எவ்வளவு (எ.கா., 2000 ரூபாய்), விவசாய தேவைகளுக்கு எவ்வளவு (எ.கா., 1500 ரூபாய்), மற்றும் சேமிப்புக்கு எவ்வளவு (எ.கா., 500 ரூபாய்) என்பதை முடிவு செய்யவும். இந்த திட்டத்தை பின்பற்றி அதிக செலவு செய்யாமல் இருங்கள்.</p>
+                            </div>
+                            <div class="tip" data-lang="ta-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">3. அவசியமற்ற செலவுகளை தவிர்க்கவும்</h3>
+                                <p>நீங்கள் தேவையில்லாதவற்றை வாங்குவதை தவிர்க்கவும், உதாரணமாக கூடுதல் பதார்த்தங்கள் அல்லது அலங்கார பொருட்கள். எடுத்துக்காட்டாக, 200 ரூபாய்க்கு புது சட்டை வாங்குவதற்கு பதிலாக, அந்த பணத்தை உங்கள் விவசாயத்திற்கு விதைகளை வாங்குவதற்கு பயன்படுத்தவும்.</p>
+                            </div>
+                            <div class="tip" data-lang="ta-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">4. வங்கி கணக்கை பயன்படுத்தவும்</h3>
+                                <p>உங்கள் சேமிப்பை வீட்டில் வைப்பதற்கு பதிலாக வங்கி கணக்கில் வைக்கவும். அது பாதுகாப்பானது, மேலும் சில வங்கிகள் நேரம் செல்லும் போது கூடுதல் பணம் (வட்டி) கொடுக்கின்றன. உங்கள் உள்ளூர் வங்கிக்கு சென்று ஒரு கணக்கு எப்படி திறப்பது என்பதை கற்கவும்.</p>
+                            </div>
+
+                            <!-- Telugu Tips -->
+                            <div class="tip" data-lang="te-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">1. ప్రతి నెలా కొద్దిగా ఆదా చేయండి</h3>
+                                <p>మీ పంటలు లేదా సరుకులు అమ్మిన తర్వాత, ఖర్చు చేయక మునుపు కొద్దిగా డబ్బు (ఉదా., 100 రూపాయలు) పక్కన పెట్టండి. అది ఒక సురక్షిత స్థలంలో లేదా మీ బ్యాంక్ ఖాతాలో ఉంచండి. కాలంతో, ఇది అవసర కాలంలో సహాయపడుతుంది, ఉదాహరణకు బద్దలైన సాధనాన్ని రిపేర్ చేయడానికి.</p>
+                            </div>
+                            <div class="tip" data-lang="te-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">2. మీ ఖర్చును ప్లాన్ చేయండి</h3>
+                                <p>ఒక సింపుల్ బడ్జెట్ చేయండి. ఉదాహరణకు, మీరు నెలకు 5000 రూపాయలు సంపాదిస్తే, ఆహారానికి ఎంత (ఉదా., 2000 రూపాయలు), వ్యవసాయ అవసరాలకు ఎంత (ఉదా., 1500 రూపాయలు), మరియు ఆదాయానికి ఎంత (ఉదా., 500 రూపాయలు) అని నిర్ణయించండి. ఈ ప్లాన్‌ను పాటించి అధిక ఖర్చును నివారించండి.</p>
+                            </div>
+                            <div class="tip" data-lang="te-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">3. అవసరమైన ఖర్చులను తప్పించండి</h3>
+                                <p>మీకు అవసరమైనవి కాదని భావించిన వస్తువుల కొనుగోలును ఆపండి, ఉదా., అదనంగా స్నాక్స్ లేదా ఫ్యాన్సీ ఐటమ్స్. ఉదా., 200 రూపాయలకు కొత్త చీర కొనడం కాకుండా, ఆ డబ్బును మీ వ్యవసాయం కోసం విత్తనాల కొనుగోలుకు ఉపయోగించండి.</p>
+                            </div>
+                            <div class="tip" data-lang="te-IN" style="display: none;">
+                                <h3 class="fw-bold mb-3" style="color: var(--kumkum-gold);">4. బ్యాంక్ ఖాతాను ఉపయోగించండి</h3>
+                                <p>మీ ఆదాయాన్ని ఇంట్లో ఉంచే బదులు బ్యాంక్ ఖాతాలో ఉంచండి. ఇది సురక్షితమైనది, మరియు కొన్ని బ్యాంక్‌లు సమయంతో అదనంగా డబ్బు (వడ్డీ) ఇస్తాయి. ఖాతా ఎలా తెరవాలో తెలుసుకోవడానికి మీ స్థానిక బ్యాంక్‌కు వెళ్లండి.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    const languageSelect = document.getElementById('language-select');
+    const tips = document.querySelectorAll('.tip');
+
+    languageSelect.addEventListener('change', function() {
+        const selectedLanguage = this.value;
+        tips.forEach(tip => {
+            tip.style.display = tip.getAttribute('data-lang') === selectedLanguage ? 'block' : 'none';
+        });
+    });
+
+    // Set default language to English on page load
+    window.addEventListener('load', function() {
+        languageSelect.value = 'en-US';
+        tips.forEach(tip => {
+            tip.style.display = tip.getAttribute('data-lang') === 'en-US' ? 'block' : 'none';
+        });
+    });
+</script>
+{% endblock %}
