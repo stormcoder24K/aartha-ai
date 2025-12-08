@@ -257,7 +257,7 @@ Focused on full-stack, AI-for-good, and accessible financial tooling
 
 ## 📜 License
 
-Visual Studio
+MIT Licence
 
 ---
 
