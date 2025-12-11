@@ -238,10 +238,10 @@ Aartha.ai addresses critical issues in rural India:
 
 ---
 
-## 🧑‍💻 Authors
+## 🧑‍💻 Author
 
-**Aarush, Aryan**  
-AI/ML Engineers (CSE — AI & ML)  
+**Aarush**  
+AI/ML Engineer (CSE — AI & ML)  
 Focused on full-stack, AI-for-good, and accessible financial tooling
 
 
